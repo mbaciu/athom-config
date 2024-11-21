@@ -12,7 +12,7 @@ substitutions:
   sntp_server_2: "1.pool.ntp.org"
   sntp_server_3: "2.pool.ntp.org"
   wifi_fast_connect: "false"
-  log_level: "DEBUG"
+  log_level: "INFO"
   ipv6_enable: "false"
 
 esphome:
@@ -203,8 +203,6 @@ switch:
     optimistic: true
     restore_mode: RESTORE_DEFAULT_ON
     on_turn_on:
-      - light.turn_off: led
-    on_turn_off:
       - light.turn_off: led
 
 number:
