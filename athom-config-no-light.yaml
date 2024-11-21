@@ -64,13 +64,14 @@ captive_portal:
 dashboard_import:
   package_import_url: github://athom-tech/athom-configs/athom-presence-sensor.yaml
 
-# light:
-#   - platform: status_led
-#     name: "Status LED"
-#     id: led
-#     pin: GPIO16
-#     disabled_by_default: true
-#     entity_category: config
+light:
+  - platform: status_led
+    name: "Status LED"
+    id: led
+    pin: GPIO16
+    disabled_by_default: true
+    entity_category: config
+    restore_mode: ALWAYS_OFF
 
 i2c:
   sda: GPIO4
