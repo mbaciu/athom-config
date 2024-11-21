@@ -12,7 +12,7 @@ substitutions:
   sntp_server_2: "1.pool.ntp.org"
   sntp_server_3: "2.pool.ntp.org"
   wifi_fast_connect: "false"
-  log_level: "DEBUG"
+  log_level: "VERY_VERBOSE"
   ipv6_enable: "false"
 
 esphome:
@@ -62,7 +62,7 @@ wifi:
 captive_portal:
 
 dashboard_import:
-  package_import_url: github://athom-tech/athom-configs/athom-presence-sensor.yaml
+  package_import_url: github://mbaciu/athom-config/athom-config-no-light.yaml
 
 light:
   - platform: status_led
