@@ -72,16 +72,6 @@ light:
     disabled_by_default: true
     entity_category: config
 
-automation:
-  - id: force_led_off
-    alias: "Ensure Status LED is Always Off"
-    trigger:
-      - platform: state
-        entity_id: light.led
-        to: "on" # Trigger when the light is turned on
-    action:
-      - light.turn_off:
-          id: led
 i2c:
   sda: GPIO4
   scl: GPIO5
@@ -212,14 +202,10 @@ switch:
     entity_category: config
     optimistic: true
     restore_mode: RESTORE_DEFAULT_ON
-#     on_turn_on:
-#       if:
-#         condition:
-#           binary_sensor.is_on: occupancy
-#         then:
-#           - light.turn_on: led
-#     on_turn_off:
-#       - light.turn_off: led
+    on_turn_on:
+      - light.turn_off: led
+    on_turn_off:
+      - light.turn_off: led
 
 number:
   - platform: template
