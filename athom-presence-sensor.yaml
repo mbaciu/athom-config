@@ -12,7 +12,7 @@ substitutions:
   sntp_server_2: "1.pool.ntp.org"
   sntp_server_3: "2.pool.ntp.org"
   wifi_fast_connect: "false"
-  log_level: "INFO"
+  log_level: "DEBUG"
   ipv6_enable: "false"
 
 esphome:
@@ -119,12 +119,12 @@ binary_sensor:
       - delayed_on: 50ms
       - delayed_off: 10s
     device_class: motion
-#     on_press:
-#       if:
-#         condition:
-#           switch.is_on: presence_light
-#         then:
-#           - light.turn_on: led
+    on_press:
+      if:
+        condition:
+          switch.is_on: presence_light
+        then:
+          - light.turn_on: led
 
   - platform: gpio
     pin:
@@ -137,9 +137,9 @@ binary_sensor:
     filters:
       - delayed_on: 50ms
     device_class: motion
-#     on_release:
-#       then:
-#         - light.turn_off: led
+    on_release:
+      then:
+        - light.turn_off: led
 
   - platform: template
     name: "Occupancy"
