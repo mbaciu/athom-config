@@ -71,8 +71,17 @@ light:
     pin: GPIO16
     disabled_by_default: true
     entity_category: config
-    restore_mode: ALWAYS_OFF
 
+automation:
+  - id: force_led_off
+    alias: "Ensure Status LED is Always Off"
+    trigger:
+      - platform: state
+        entity_id: light.led
+        to: "on" # Trigger when the light is turned on
+    action:
+      - light.turn_off:
+          id: led
 i2c:
   sda: GPIO4
   scl: GPIO5
